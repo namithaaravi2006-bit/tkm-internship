@@ -1,13 +1,22 @@
 <img width="1631" height="921" alt="Screenshot 2026-06-10 150625" src="https://github.com/user-attachments/assets/602655ce-8490-404c-81ae-bb40d394dfcc" />
 
 
-4-Bit Universal Shift Register (USR)
------------------------------------
-This directory contains the HDL design and functional verification for a 4-bit Universal Shift Register. A Universal Shift Register is a highly versatile sequential logic circuit capable of storing and shifting data bidirectional (left and right) as well as loading data in parallel, depending on the selected control mode.
+Universal Shift Register
+------------------------
+This section documents the functional verification and waveform analysis of the Universal Shift Register module. The behavioral simulation was performed using Vivado Simulator (xsim) to verify all operational modes including synchronous/asynchronous reset, parallel loading, and directional shifting.
 
-Functional Working Principle
-----------------------------
-The module multiplexes its internal flip-flop D-inputs depending on the status of the mode[1:0] bus:
-Reset Dominance: When rst is asserted high, the parallel output bus is immediately cleared to 4'b0000 (h0), overriding mode selections.
-Parallel Loading: When mode = 2'b11 (3 in decimal), data from parallel_in is loaded directly into the internal registers on the next rising clock edge.
-Shifting Dynamics: During shifting operations, bits move sequentially by one position per clock cycle. The serial output (serial_out) reflects the bit that is pushed out of the boundary or tracks the leading edge bit depending on the internal assignment.
+Operation Modes Table Mode is decided by Mode bits these Mode bits are represented as mode[1:0]. The Operation Mode is described as follows:
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+00 is SISO mode which means Serial-In and Serial-Out. In this SISO mode Data shifts to the line by line from the serial input. The Significant Bit, which is shift_reg[3] is continually sent to the serial output.
+01 is SIPO mode which means Serial-In and Parallel-Out. In this SIPO mode Data shifts to the left from the input. The entire internal register state is continually mapped to the 4-bit output bus.
+10 is PISO mode which means Parallel-In and Serial-Out. In this PISO mode the loaded internal data is shifted out via the serial output bit, by bit. At the time zeros are shifted in from the right side.
+11 is PIPO mode which means Parallel-In and Parallel-Out. In this PIPO mode the entire 4-bit parallel input bus is instantly captured into the register. Then this captured data is directly exposed to the output.
+Verification Module (tb_universal_shift_register)
+
+The testbench gives a clean clock signal. The clock signal changes every 5 units. It has a clock period. This helps to test the device under test (UUT) step-by-step. The UUT goes through verification milestones. *. Reset: The simulation environment starts up. It sets a reset state. This reset state lasts for the 15ns.
+
+PIPO Validation (Mode 11): The system loads 4-bit configurations. The configurations are 1011 and 0101. This shows that the system can load data in parallel away.
+PISO Validation (Mode 10): The system checks if it can take data out one bit at a time through the single serial_out pin. This happens over 4 clock cycles.
+SISO Validation (Mode 00): The system sends custom bits one by one. The bits are 1, 1 0 1 and so on. This checks if the system can track the bits in the register array.
+SIPO Validation (Mode 01): The system puts one bit through the pipeline at a time. It checks if all the bits, in the register can be seen at parallel_out at the time.
