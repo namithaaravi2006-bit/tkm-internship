@@ -19,5 +19,5 @@ From 0 ns to 17 ns which's when the system is starting up the reset button makes
 From 35 ns to 65 ns when we are writing data the system is working smoothly. For example when we write to address 0x0A it records the value 0xAA. When we write to address 0x14 it captures the value 0xBB.
 After 65 ns when we stop writing data the system starts to read the data back. It does this by going through the data one step at a time. It gets the values 0xAA. 0Xbb back, in the correct order, which is what we expect from the Behavioral Waveform Verification.
 
-##Result
+## Result
 The Block Memory Generator was implemented successfully
