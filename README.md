@@ -52,6 +52,12 @@ TKM_INTERNSHIP
 
 
 ### Day 3
+* Face Detector
+* Sequence Detector
+
+### Day 4
+  
+
 
 
 ## Technologies Used
