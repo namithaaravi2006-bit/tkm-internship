@@ -50,18 +50,18 @@ TKM_INTERNSHIP
 * SR Flip Flop
 * Universal Shift Register
 
-
 ### Day 3
 * Face Detector
 * Sequence Detector
 
 ### Day 4
-  
+* Block Memory Generator
 
-
+### Day 5
+* Bcd Adder Interface
+* FIFO Interface
 
 ## Technologies Used
-
 - Verilog HDL
 - Vivado Design Suite
 - GitHub
