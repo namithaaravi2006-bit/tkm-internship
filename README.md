@@ -44,6 +44,16 @@ TKM_INTERNSHIP
 - 4-Bit Ripple Carry Adder
 - BCD Counter
 
+### Day 2
+* Decoder
+* D Flip Flop
+* SR Flip Flop
+* Universal Shift Register
+
+
+### Day 3
+
+
 ## Technologies Used
 
 - Verilog HDL
