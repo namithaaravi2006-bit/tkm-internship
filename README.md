@@ -61,6 +61,12 @@ TKM_INTERNSHIP
 * Bcd Adder Interface
 * FIFO Interface
 
+### Day 6
+* FIFO Transaction
+
+### Day 7
+* APB Protocol
+
 ## Technologies Used
 - Verilog HDL
 - Vivado Design Suite
