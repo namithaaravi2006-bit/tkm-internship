@@ -38,6 +38,9 @@ The processing flow is:
 
 Image Memory → Pixel Stream Generator → Convolution → ReLU → Max Pooling → ReLU → Max Pooling → Flatten → Fully Connected Layer(s)
 
+<img width="917" height="252" alt="image" src="https://github.com/user-attachments/assets/bacee7a8-e8ef-467e-944c-1b66e233213a" />
+
+
 ---
 
 #  Design Files
