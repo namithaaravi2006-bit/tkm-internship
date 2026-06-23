@@ -1,9 +1,5 @@
 # CNN Inference Accelerator Using SystemVerilog
 
-<img width="1306" height="736" alt="Screenshot 2026-06-23 090532" src="https://github.com/user-attachments/assets/5297d398-27d8-4fc3-b636-aa4b2b2aa969" />
-
-
-
 #  Abstract
 
 This project implements a Convolutional Neural Network (CNN) hardware accelerator using SystemVerilog. The design processes image data through a sequence of neural network operations including convolution, activation, pooling, flattening, and fully connected layers. The accelerator is organized as a modular architecture consisting of dedicated processing blocks, memory components, control logic, and runtime weight-loading support.
